@@ -4,8 +4,9 @@ import type {
     InternalAxiosRequestConfig,
     AxiosResponse,
 } from 'axios';
+import { env } from '../env';
 
-const BASE_URL_AUTH = import.meta.env.VITE_APP_AUTH_URL;
+const BASE_URL_AUTH = env.VITE_APP_AUTH_URL;
 
 interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
     _retry?: boolean;
@@ -13,7 +14,7 @@ interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
 
 
 const axiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_APP_BACKEND_URL,
+    baseURL: env.VITE_APP_BACKEND_URL,
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
